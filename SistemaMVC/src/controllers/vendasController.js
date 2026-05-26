@@ -46,4 +46,4 @@ const vendasController = {
     }
 };
 
-module.exports = vendasControllers;
+module.exports = vendasController;
