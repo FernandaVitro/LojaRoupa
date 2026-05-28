@@ -31,10 +31,9 @@ const Pessoa = {
     },
 
     deletar: async (id) => {
-        const [result] = await pool.execute('DELETE FROM PESSOAS WHERE id = ?', [id])
+        const [result] = await pool.execute('DELETE FROM PESSOAS WHERE id = ?', [id]);
         return result.affectedRows;
     },
-
     atualizar: async (id, dados) => {
         const query = `
         UPDATE pessoas
@@ -61,7 +60,8 @@ const Pessoa = {
         const [result] = await pool.execute(query, values);
         return result.affectedRows;
     }
-
 };
+
+
 
 module.exports = Pessoa;

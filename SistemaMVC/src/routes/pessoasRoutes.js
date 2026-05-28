@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const pessoasControllers = require('../controllers/pessoasControllers');
+const pessoasController = require('../controllers/pessoasControllers');
 
-// Rota para listar (GET)
-router.get('/pessoas', pessoasControllers.index);
 
-// Rota para criar (POST) 
-router.post('/pessoas', pessoasControllers.store);
+router.get('/pessoas', pessoasController.index);
 
-// Rota para criar (DELETE) 
-router.delete('/pessoas/:id', pessoasControllers.delete);
+router.delete('/pessoas/:id', pessoasController.delete);
 
-router.put('/pessoas/:id', pessoasControllers.update);
+router.post('/pessoas', pessoasController.store);
+
+router.put('/pessoas/:id', pessoasController.update);
+
+
 
 module.exports = router;
