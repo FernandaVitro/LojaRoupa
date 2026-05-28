@@ -1,19 +1,15 @@
-require('dotenv').config('');
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql2/promise');
-
-const pessoasRoutes = require('./src/routes/pessoasRoutes')
-const funcionariosRoutes = require('./src/routes/funcionariosRoutes');
-const produtosRoutes = require('./src/routes/produtosRoutes');
-
+const pessoaRoutes = require('./src/routes/pessoasRoutes');
+const fornecedoresRoutes = require('./src/routes/fornecedoresRoutes');
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-app.use(pessoasRoutes);
-app.use(funcionariosRoutes);
-app.use(produtosRoutes);
+app.use(pessoaRoutes);
+app.use(fornecedoresRoutes);
 
-const PORT = process.env.PORT;
-app.listen(PORT, ()=>console.log(`server em http://localhost:${PORT}`))
+const PORT = process.env.PORT || 3000; 
+app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`));

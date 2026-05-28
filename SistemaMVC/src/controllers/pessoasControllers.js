@@ -1,6 +1,6 @@
 const Pessoa = require('../model/pessoasModel');
 
-const pessoasControllers = {
+const pessoasController = {
     index: async (req, res) => {
         try {
             const pessoa = await Pessoa.listarTodos();
@@ -28,11 +28,12 @@ const pessoasControllers = {
         try {
             const affectedRows = await Pessoa.deletar(id);
             if (affectedRows === 0) {
-                return res.status(404).json({ message: 'Registro não encontrado' })
+                return res.status(404).json(({ mensagem: 'Registro nao encontraado' }))
             }
             res.status(204).send();
         } catch (error) {
-            res.status(500).json({ error: error.message })
+            res.status(500).json({ error: error.mensagem })
+
         }
     },
     update: async (req, res) => {
@@ -54,9 +55,7 @@ const pessoasControllers = {
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
+    },
+};
 
-    }
-}
-
-
-    module.exports = pessoasControllers;
+module.exports = pessoasController;
